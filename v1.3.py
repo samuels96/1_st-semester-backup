@@ -8,6 +8,7 @@ def setup():
 	en3, m3f, m3b = 37, 35, 33
 	en4, m4f, m4b = 40, 38, 36
 	all_outputs = [en1, m1f, m1b, en2, m2f, m2b, en3, m3f, m3b, en4, m4f, m4b]
+	all_enable = [en1, en2, en3, en4]
 
 	left, mid, right = 23, 19, 21 
 
@@ -53,15 +54,12 @@ def change_right(x=0):
 
 	while GPIO.input(right):
 		speed_left = max_speed if not GPIO.input(mid) else 0
-
+		
 	speed_right = max_speed//1.4
 
 
 def loop():
-	global speed_left
-	global speed_right
-
-	GPIO.output([en1, en2, en3, en4], 1)
+	GPIO.output(all_enable, 1)
 	GPIO.add_event_detect(left, GPIO.RISING, callback=change_left, bouncetime=1)
 	GPIO.add_event_detect(right, GPIO.RISING, callback=change_right, bouncetime=1)
 

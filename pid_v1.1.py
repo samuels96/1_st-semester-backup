@@ -95,8 +95,7 @@ def loop():
 	derivative = 0
 
 	while True:
-		error = getError()
-		error = error - offset
+		error = getError() - offset
 		integral = integral + error * dT
 		
 		if(integral > integral_max):
