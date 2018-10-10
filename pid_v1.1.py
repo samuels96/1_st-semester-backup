@@ -113,7 +113,6 @@ def loop():
 		
 		lastError = error
 		
-						
 try:
 	setup()				
 	loop()					
