@@ -43,7 +43,9 @@ def change_left(x=0):
 
 	while GPIO.input(left):
 		speed_right = max_speed if not GPIO.input(mid) else 0
-
+		rm1.ChangeDutyCycle(speed_right)
+		rm2.ChangeDutyCycle(speed_right)
+		
 	speed_left = max_speed//1.4
 
 def change_right(x=0):
@@ -54,6 +56,9 @@ def change_right(x=0):
 
 	while GPIO.input(right):
 		speed_left = max_speed if not GPIO.input(mid) else 0
+		rm1.ChangeDutyCycle(speed_right)
+		rm2.ChangeDutyCycle(speed_right)
+		
 		
 	speed_right = max_speed//1.4
 
@@ -71,7 +76,7 @@ def loop():
 
 try:
 	setup()
-	loop()
+    loop()
 except:
-	GPIO.cleanup()
+    GPIO.cleanup()
 

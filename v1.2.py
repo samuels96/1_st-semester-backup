@@ -73,7 +73,7 @@ def loop():
 
 try:
 	setup()
-    loop()
+	loop()
 except:
     GPIO.cleanup()
 

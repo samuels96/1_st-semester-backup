@@ -95,7 +95,7 @@ def main():
 			m4.ChangeDutyCycle(speed_right)
 try:
 	setup()
-    main()
+	main()
 except:
     GPIO.cleanup()
 
